@@ -1,0 +1,5 @@
+ch.heigvd.res.mailrobot
+ch.heigvd.res.mailrobot.config
+ch.heigvd.res.mailrobot.model.mail
+ch.heigvd.res.mailrobot.model.prank
+ch.heigvd.res.mailrobot.smtp
