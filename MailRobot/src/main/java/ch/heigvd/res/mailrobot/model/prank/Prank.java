@@ -1,6 +1,5 @@
 /**
- * File : Prank.java 
- * This file represents all the information and methods
+ * File : Prank.java This file represents all the information and methods
  * related to the prank.
  *
  * @author AYOUB Jean
@@ -68,20 +67,38 @@ public class Prank {
         Message msg = new Message();
 
         msg.setBody(this.message + "\r\n" + victimSender.getFirstName());
+        /*
+         String[] to = victimRecipients
+         .stream()
+         .map(p -> p.getAddress())
+         .collect(Collectors.toList())
+         .toArray(new String[]{});
+         */
 
-        String[] to = victimRecipients
-                .stream()
-                .map(p -> p.getAddress())
-                .collect(Collectors.toList())
-                .toArray(new String[]{});
+        // !!!!! une autre manière d'obtenir les adresses pour to !!!!!
+        String[] to = new String[victimRecipients.size()];
 
+        int i = 0;
+        for (Person person : victimRecipients) {
+            to[i++] = person.getAddress();
+
+        }
         msg.setTo(to);
 
-        String[] cc = witnessRecipients
-                .stream()
-                .map(p -> p.getAddress())
-                .collect(Collectors.toList())
-                .toArray(new String[]{});
+        /*
+         String[] cc = witnessRecipients
+         .stream()
+         .map(p -> p.getAddress())
+         .collect(Collectors.toList())
+         .toArray(new String[]{});
+         */
+        // !!!!! une autre maanière d'obtenir les adresses pour Cc !!!!
+        i = 0;
+        String[] cc = new String[witnessRecipients.size()];
+        for (Person person : witnessRecipients) {
+            cc[i++] = person.getAddress();
+
+        }
 
         msg.setCc(cc);
 
